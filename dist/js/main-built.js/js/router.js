@@ -1,0 +1,1 @@
+define(["jquery","underscore","backbone","view/LoginView.js","models/LoginModal.js"],function(e,n,o,i,r){return o.Router.extend({routes:{login:"login"},login:function(){new i({model:new r}).render()}})});

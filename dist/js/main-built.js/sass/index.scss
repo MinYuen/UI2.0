@@ -1,0 +1,42 @@
+$blue : #00a9ce;
+$darken_blue : darken($blue, 5%);
+$lighten_blue : lighten($blue, 5%);
+$body_color : #f9f9f9;
+$white : #ffffff;
+$darken_white : darken($white, 5%);
+
+body {
+  font-size: 12px;
+  margin-bottom: 50px;
+  background-color: $body_color;
+}
+
+.btn-primary {
+  background-color: $blue;
+  border-color : $darken_blue;
+
+  &:hover,
+  &:active,
+  &:focus{
+    background-color: $darken_blue;
+    border-color : $darken_blue;
+  }
+}
+
+.control-label {
+  color: #666;
+  font-weight: normal;
+}
+
+.alertBox {
+  font-size: 16px;
+  margin: 3px 5px;
+}
+
+*{
+  &:hover,
+  &:active,
+  &:focus{
+    outline: none;
+  }
+}
