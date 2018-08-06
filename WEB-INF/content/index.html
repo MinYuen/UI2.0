@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="src/css/index.css">
+    <title>自轮运转特种设备远程监控综合管理系统</title>
+  </head>
+  <body>
+    <noscript>
+      您需要启用JavaScript才能运行此应用程序。
+    </noscript>
+    <div id="root" class="height100"></div>
+    <script src="http://10.0.0.200:8888/V1.1.0/src/vendor/requireJs/js/requireJs.js"></script>
+    <script>
+        require(["src/js/requireJs.config.js"],function () {
+            require(["common"],function () {
+                require(['js/router.js'], function (app) {
+                    app.initialize();
+                });
+            })
+        });
+    </script>
+  </body>
+</html>

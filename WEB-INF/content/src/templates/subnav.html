@@ -1,0 +1,9 @@
+<ul class="nav">
+    {{each children as subnav j}}
+    {{if subnav.show}}
+    <li role="presentation" data-id="{{j}}" class="{{subnav.active? 'active' : ''}}">
+        <a href="{{subnav.url}}">{{subnav.text}}</a>
+    </li>
+    {{/if}}
+    {{/each}}
+</ul>

@@ -1,0 +1,49 @@
+{
+  "moduleName": "index",
+  "system": {
+    "name": "工务机械车信息化管理平台",
+    "logo": "/src/images/train_icon.png",
+    "department": "上海局"
+  },
+  "sysUser": {
+    "name": "",
+    "roleName": "",
+    "department": ""
+  },
+  "dropdownInfo": {
+    "saveNewPassword": {
+      "text": "修改密码",
+      "icon": "glyphicon glyphicon-lock"
+    },
+    "logout": {
+      "text": "退出系统",
+      "icon": "glyphicon glyphicon-log-out"
+    }
+  },
+  "navbar": {
+    "xtsy": {
+      "text": "系统首页",
+      "icon": "glyphicon glyphicon-home",
+      "show": true
+    },
+    "gyk": {
+      "text": "GYK管理",
+      "icon": "glyphicon glyphicon-road",
+      "children": {
+        "yxjl": {
+          "text": "运行记录转储"
+        }
+      }
+    }
+  },
+  "company": {
+    "name": "高新兴创联科技有限公司",
+    "url": "http://cl.gosuncn.com/",
+    "copyright": "2018",
+    "version": "2.0.0 20180723"
+  },
+  "sysLog": {
+    "createDate": "",
+    "ip": ""
+  }
+}

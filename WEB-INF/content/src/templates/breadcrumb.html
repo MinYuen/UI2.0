@@ -1,0 +1,8 @@
+<span><i class="am-icon-folder icon"></i>当前位置：</span>
+{{each breadcrumb as li i}}
+{{if breadcrumb.length-1 != i && i != 0}}
+<li><a href="#{{li.url}}">{{li.text}}</a></li>
+{{else}}
+<li class="active">{{li.text}}</li>
+{{/if}}
+{{/each}}
