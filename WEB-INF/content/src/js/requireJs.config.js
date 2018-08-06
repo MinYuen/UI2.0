@@ -6,12 +6,15 @@
     var userAgent = window.navigator.userAgent,
         lowIE = /Trident/.test(userAgent) && /(5|6|7|8)/.test(userAgent.match(/MSIE\s(\d+).\d+/) ? RegExp["$1"] : ""),
         requireConfig = {
-            //waitSeconds : 0,
+            waitSeconds : 0,
             baseUrl: "http://10.0.0.190:60081/hzcec-ui/V1.1.0/dist/",
             //baseUrl: "http://localhost:8888/V1.1.0/src/",
             paths: {
                 "text": "vendor/requireText/js/requireText-85ae50987d.min.js",
                 "css": "vendor/requireCss/js/requireCss-5e9e869ef8.min.js",
+                "mock": "vendor/mock/js/mock-5e9e869ef8.min.js",
+                "backbone": "vendor/backbone/js/backbone-5e9e869ef8.min.js",
+                "underscore": "vendor/underscore/js/underscore-5e9e869ef8.min.js",
                 "artTemplate": "vendor/artTemplate/js/artTemplate-077d036160.min.js",
                 "jquery": "vendor/jquery/js/" + (lowIE ? "jquery-ie8-c927eab723.min.js" : "jquery-bfca35fe4f.min.js"),
                 "cropper": "vendor/cropper/js/" + (lowIE ? "cropper-ie8-0aaffc34c1.min.js" : "cropper-cc8b259036.min.js"),
@@ -38,6 +41,16 @@
                 "optionSelect": "fog/optionSelect/js/optionSelect-0eb5f8ad5f.min.js"
             },
             shim: {
+                'underscore': {
+                    exports: '_'
+                },
+                'jquery': {
+                    exports: '$'
+                },
+                'backbone': {
+                    deps: ['underscore', 'jquery'],
+                    exports: 'Backbone'
+                },
                 "cropper": {
                     deps: ["jquery", "css!vendor/cropper/css/" + (lowIE ? "cropper-ie8-3f0d43ad32.min.css" : "cropper-d2140d5599.min.css")]
                 },
@@ -51,7 +64,7 @@
                     deps: ["jquery", "css!vendor/slider/css/slider-0245259d69.min.css"]
                 },
                 "common": {
-                    deps: ["bootstrap"]
+                    deps: ["bootstrap","mock-dev"]
                 },
                 "tree": {
                     deps: ["common", "css!fog/tree/css/tree-e27171afba.min.css"]
@@ -101,6 +114,17 @@
                 },
                 "validator": {
                     deps: ["common"]
+                }
+            },
+            map: {
+                '*': {
+                    'js' : '/src/js',
+                    'mock-dev' : '/mock/mock-dev.js',
+                    'data' : '/src/data',
+                    'view': '/src/js/view',
+                    'models' : '/src/js/models',
+                    'collections' : '/src/js/collections',
+                    'templates' : '/src/templates'
                 }
             }
         },
