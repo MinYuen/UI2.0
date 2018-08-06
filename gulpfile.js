@@ -11,7 +11,7 @@ var gulp = require('gulp'),                     //本地安装gulp所用到的�
 
 //- 读取 rev-manifest.json 文件以及需要进行css名替换的文件
 var rev = function () {
-    return gulp.src(['rev/*.json',commons + "*.*","!" + commons + "**/*.png","!" + commons + "**/*.jpg","!" + commons + "**/*.gif"])
+    return gulp.src(['rev/*.json',commons + "/**","!" + commons + "/**/*.png","!" + commons + "/**/*.jpg","!" + commons + "/**/*.gif","!" + commons + "/**/*.ico"])
         .pipe(plugins.revCollector({
             replaceReved:true
         }))
@@ -38,7 +38,7 @@ gulp.task('rev',rev);
 
 //to src
 gulp.task('toSrc',function () {
-    return gulp.src([commons + "*.*","!" + commons + "**/*.png","!" + commons + "**/*.jpg","!" + commons + "**/*.gif"])
+    return gulp.src([commons + "/**","!" + commons + "/**/*.png","!" + commons + "/**/*.jpg","!" + commons + "/**/*.gif","!" + commons + "/**/*.ico"])
         .pipe(plugins.replace(/-.{10}\.min(\.(?:js|css)")/g, '$1'))
         .pipe(plugins.replace(/\.min(\.(?:js|css)")/g, '$1'))
         .pipe(gulp.dest(commons));
@@ -46,7 +46,7 @@ gulp.task('toSrc',function () {
 
 //to dist
 gulp.task('toDist',function () {
-    return gulp.src([commons + "*.*","!" + commons + "**/*.png","!" + commons + "**/*.jpg","!" + commons + "**/*.gif"])
+    return gulp.src([commons + "/**","!" + commons + "/**/*.png","!" + commons + "/**/*.jpg","!" + commons + "/**/*.gif","!" + commons + "/**/*.ico"])
         .pipe(plugins.replace(/(\.(?:js|css)")/g, '.min$1'))
         .pipe(gulp.dest(commons));
 });

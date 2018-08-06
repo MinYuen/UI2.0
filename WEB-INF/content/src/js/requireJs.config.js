@@ -12,9 +12,9 @@
             paths: {
                 "text": "vendor/requireText/js/requireText-85ae50987d.min.js",
                 "css": "vendor/requireCss/js/requireCss-5e9e869ef8.min.js",
-                "mock": "vendor/mock/js/mock-5e9e869ef8.min.js",
-                "backbone": "vendor/backbone/js/backbone-5e9e869ef8.min.js",
-                "underscore": "vendor/underscore/js/underscore-5e9e869ef8.min.js",
+                "mock": "vendor/mock/js/mock-2d606a442c.min.js",
+                "backbone": "vendor/backbone/js/backbone-3c740deddb.min.js",
+                "underscore": "vendor/underscore/js/underscore-0b026fe2d3.min.js",
                 "artTemplate": "vendor/artTemplate/js/artTemplate-077d036160.min.js",
                 "jquery": "vendor/jquery/js/" + (lowIE ? "jquery-ie8-c927eab723.min.js" : "jquery-bfca35fe4f.min.js"),
                 "cropper": "vendor/cropper/js/" + (lowIE ? "cropper-ie8-0aaffc34c1.min.js" : "cropper-cc8b259036.min.js"),
