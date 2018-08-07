@@ -23,7 +23,7 @@
                 "slider": "vendor/slider/js/slider-8ebcb1f57f.min.js",
                 "respond": "/common/respond/respond.proxy.min.js",
                 "common": "fog/common/js/common-1048af9326.min.js",
-                "table": "fog/table/js/table-07a87b176c.min.js",
+                "table": "fog/table/js/table-07a87b176c.js",
                 "exception": "fog/exception/js/exception-b131da08d0.min.js",
                 "search": "fog/search/js/search-15b7105b7e.min.js",
                 "alert": "fog/alert/js/alert-0478891064.min.js",

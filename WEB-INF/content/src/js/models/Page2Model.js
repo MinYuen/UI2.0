@@ -7,6 +7,7 @@ define([
 
         },
         defaults: {
+            "moduleName" : "page2",
             "name":  "page2"
         }
     });

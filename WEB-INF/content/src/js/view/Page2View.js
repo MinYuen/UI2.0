@@ -1,6 +1,6 @@
 define([
     "jquery", "underscore", "backbone", "artTemplate",
-    "text!templates/page2.html","models/Page2Model.js"
+    "text!templates/page2.html","models/Page2Model.js","tree"
 ], function ($, _, Backbone,template,
              Page2Html,Page2Model
 ) {
@@ -14,7 +14,13 @@ define([
         },
         render: function () {
             this.$el.html(template.compile(Page2Html)(this.model.toJSON()));
-            return this;
+            this.activeTree();
+        },
+        activeTree : function () {
+            $("#page2_tree").treeview({
+                url: "/page2",
+                rootId: 0
+            })
         }
     })
 });

@@ -1,6 +1,6 @@
 define([
     "jquery", "underscore", "backbone", "artTemplate",
-    "text!templates/page1.html","models/Page1Model.js"
+    "text!templates/page1.html","models/Page1Model.js","table"
 ], function ($, _, Backbone,template,
              Page1Html,Page1Model
 ) {
@@ -14,7 +14,15 @@ define([
         },
         render: function () {
             this.$el.html(template.compile(Page1Html)(this.model.toJSON()));
-            return this;
+            this.activeTable();
+        },
+        activeTable : function () {
+            $("#page1_table").datatable({
+                gopageurl: '/page1',
+                tablehead : this.model.get("tablehead")
+            }).datatable("gopage",{
+                nowPage : 1
+            })
         }
     })
 });
