@@ -19,11 +19,18 @@
     <script>
         require(["src/js/requireJs.config.js"],function () {
             require(["common"],function () {
-                require(['js/router.js'], function (app) {
-                    app.initialize();
-                });
+                require(['js/router.js']);
             })
         });
+    </script>
+    <!-- main children template -->
+    <script id="index_main_children_template" type="text/html">
+      <div class="container-fluid height100" data-id="{{id}}">
+        <div class='text-center am-margin-lg'>
+          <div class='fog-progress'></div>
+          <div>正在加载，请稍候...</div>
+        </div>
+      </div>
     </script>
   </body>
 </html>

@@ -11,6 +11,7 @@ define([
         el : $("#root"),
         initialize: function () {
             this.listenTo(this.model, "change", this.render);
+            this.render();
             //this.model.on("change", this.render, this);
         },
         render: function () {

@@ -6,12 +6,22 @@ define([
 
     "use strict";
 
-    //你的表单
     return Backbone.View.extend({
         el : $("#root"),
+        events : {
+            "click #loginBtn" : "login"
+        },
+        initialize: function () {
+            this.render();
+        },
         render: function () {
             this.$el.html(template.compile(login)(this.model.toJSON()));
             return this;
+        },
+        login : function () {
+            $.router.navigate('index/xtsy', {
+                trigger: true
+            });
         }
     })
 });
