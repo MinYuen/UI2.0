@@ -8,9 +8,6 @@ define([
 
     //你的表单
     return Backbone.View.extend({
-        initialize: function () {
-            this.render();
-        },
         render: function () {
             var model = this.model.get("subnav");
             this.$el.toggleClass("hide",!model.children);

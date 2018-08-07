@@ -8,9 +8,6 @@ define([
 
     //你的表单
     return Backbone.View.extend({
-        initialize: function () {
-            this.render();
-        },
         render: function () {
             this.$el.html(template.compile(breadcrumb)(this.model.get("breadcrumb")));
             return this;

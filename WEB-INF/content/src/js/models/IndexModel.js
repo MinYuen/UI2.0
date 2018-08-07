@@ -5,7 +5,8 @@ define([
     return Backbone.Model.extend({
         url: '/index',
         initialize: function () {
-            this.on("change:nav", this.changeNav , this);
+            this.on("change", this.changeNav , this);
+            this.on("change", this.changeNavbar , this);
         },
         defaults: JSON.parse(indexData),
         changeNav : function () {

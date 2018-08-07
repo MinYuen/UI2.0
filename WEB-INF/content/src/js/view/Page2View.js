@@ -1,14 +1,14 @@
 define([
     "jquery", "underscore", "backbone", "artTemplate",
-    "text!templates/page2.html","models/Page2Modal.js"
+    "text!templates/page2.html","models/Page2Model.js"
 ], function ($, _, Backbone,template,
-             Page2Html,Page2Modal
+             Page2Html,Page2Model
 ) {
 
     "use strict";
 
     return Backbone.View.extend({
-        model : new Page2Modal,
+        model : new Page2Model,
         initialize: function () {
             this.render();
         },

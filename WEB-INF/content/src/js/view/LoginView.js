@@ -7,7 +7,6 @@ define([
     "use strict";
 
     return Backbone.View.extend({
-        el : $("#root"),
         events : {
             "click #loginBtn" : "login"
         },
