@@ -34,6 +34,11 @@
           "text": "运行记录转储"
         }
       }
+    },
+    "runState": {
+      "text": "运行记录",
+      "icon": "glyphicon glyphicon-road",
+      "show": true
     }
   },
   "company": {

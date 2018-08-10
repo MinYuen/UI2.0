@@ -4,7 +4,8 @@ require(['mock'], function (Mock) {
             "xtsy" : true,
             "gyk" : {
                 "yxjl" : true
-            }
+            },
+            "runState" : true,
         }
     });
 });

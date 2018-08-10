@@ -4,13 +4,14 @@ define([
     "view/IndexView.js", "models/IndexModel.js",
     "view/SubnavView.js","view/navView.js",
     "view/BreadcrumbView.js",
-    "view/Page1View.js" , "view/Page2View.js"
+    "view/Page1View.js" , "view/Page2View.js",
+    "view/Page3View.js"
 ], function ($, _, Backbone,template,
              LoginView, LoginModel,
              IndexView, IndexModel,
              SubnavView,navView,
              BreadcrumbView,
-             Page1View, Page2View
+             Page1View, Page2View, Page3View
 ) {
     var indexModel = new IndexModel();
 
@@ -23,7 +24,8 @@ define([
         },
         routeIndex : {
             "xtsy" : Page1View,
-            "yxjl" : Page2View
+            "yxjl" : Page2View,
+            "runState" : Page3View
         },
         login: function () {
             this.newView("indexView","loginView",LoginView,"login",$("#root"),new LoginModel);
