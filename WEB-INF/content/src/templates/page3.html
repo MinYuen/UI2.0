@@ -1,5 +1,23 @@
-<div class="row">
-    <div class="col-xs-12">
+<div class="GYK_Container">
+    <div class="top">
+
+    </div>
+
+    <div class="middle">
+        <div class="canvas_Container">
+            <div class="top">
+                {{each canvas as single i}}
+                <canvas id="{{name}}_{{single}}">
+                    您的浏览器不支持 HTML5 canvas 标签。
+                </canvas>
+                {{/each}}
+            </div>
+            <div class="bottom">
+
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
 
     </div>
 </div>

@@ -1,7 +1,9 @@
 define([
     "jquery", "underscore", "backbone", "artTemplate",
-    "text!templates/page3.html","models/Page3Model.js","tree"
+    "view/CanvasView.js","collections/CanvasCollection.js",
+    "text!templates/page3.html","models/Page3Model.js"
 ], function ($, _, Backbone,template,
+             CanvasView,CanvasCollection,
              Page3Html,Page3Model
 ) {
 
@@ -10,16 +12,19 @@ define([
     return Backbone.View.extend({
         model : new Page3Model,
         initialize: function () {
-            this.render();
+            this.$el.html(template.compile(Page3Html)(this.model.toJSON()));
+            this.listenTo(this.model, "change", this.render);
+            this.model.fetch();
         },
         render: function () {
-            this.$el.html(template.compile(Page3Html)(this.model.toJSON()));
-            $.ajax({
-                url : "/run",
-                success : function (reply) {
-                    console.log(reply)
-                }
-            })
+            var model = this.model.toJSON();
+            new CanvasView({
+                attributes : {
+                    canvas : model.canvas,
+                    name : model.name
+                },
+                collection: new CanvasCollection(model.message)
+            });
         }
     })
 });
