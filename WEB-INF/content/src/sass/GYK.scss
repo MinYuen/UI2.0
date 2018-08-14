@@ -9,8 +9,8 @@ $gyk_padding : 0.8%;
 $gyk_radius : 8px;
 $gyk_border : 2px solid #404040;
 $canvas_height : 100%;
-$canvas_top_height : 80%;
-$canvas_bottom_height : 20%;
+$canvas_top_height : 82%;
+$canvas_bottom_height : 18%;
 
 .GYK_Container {
   width: $gyk_width;
@@ -43,11 +43,12 @@ $canvas_bottom_height : 20%;
 
   > .top {
     height: $canvas_top_height;
+    position: relative;
 
     > canvas {
       position: absolute;
       width: $gyk_width * 0.98;
-      height: $gyk_height * 0.555;
+      height: $gyk_height * 0.57;
     }
   }
 

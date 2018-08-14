@@ -9,7 +9,7 @@ define([
 
     return Backbone.View.extend({
         initialize: function () {
-           this.drawCanvas = new DrawCanvas(this.attributes);
+           this.drawCanvas = new DrawCanvas(this.attributes,this.collection.toJSON());
         },
         render: function () {
             this.drawCanvas.draw();

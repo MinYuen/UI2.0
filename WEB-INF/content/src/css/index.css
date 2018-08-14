@@ -20,14 +20,15 @@
   border-radius: 8px;
   height: 100%; }
   .canvas_Container > .top {
-    height: 80%; }
+    height: 82%;
+    position: relative; }
     .canvas_Container > .top > canvas {
       position: absolute;
       width: 784px;
-      height: 333px; }
+      height: 342px; }
   .canvas_Container > .bottom {
     background: #212121;
-    height: 20%; }
+    height: 18%; }
 
 body, html {
   height: 100%;
