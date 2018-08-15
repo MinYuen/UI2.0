@@ -1,6 +1,6 @@
 define([
-    "jquery", "underscore"
-], function ($, _) {
+    "jquery", "underscore","js/updateData.js"
+], function ($, _ , UpdateData) {
     var DrawCanvas = function (options) {
         if (this instanceof DrawCanvas) {
             var ctxs = {};
@@ -11,6 +11,7 @@ define([
             });
             this.ctxs = ctxs;
             this.space = options.space; //时间跨度
+            this.updateData = new UpdateData();
             this.drawXY();
             this.drawRuler();
         } else {
@@ -45,6 +46,11 @@ define([
             ctx.strokeStyle = DrawCanvas.xy.colorX;
             this.oneLine(ctx,{x : 0, y : allHeight},{x : dom.width, y : allHeight});
 
+            for (var j = 1; j < 4; j++) {
+                var x = DrawCanvas.xy.marginLeft + this.allWidth / 4 * j;
+                this.oneLine(ctx,{x : x, y : allHeight - 14},{x : x, y : allHeight});
+            }
+
             //画辅助线
             ctx.lineWidth = DrawCanvas.xy.widthx;
             for (var i = 1;i < DrawCanvas.xy.partY ; i++){
@@ -70,6 +76,7 @@ define([
             this.drawLine("speed");
             this.drawLine("limitSpeed");
             this.drawGLB();
+            this.updateData.render(this.data[this.getNear(this.current)]);
         },
         //画速度、限速
         drawLine : function (type) {
@@ -131,6 +138,9 @@ define([
                 ctx.clearRect(0, 0, dom.width, dom.height);
                 that.oneLine(ctx, {x: x, y: 0}, {x: x, y: that.allHeight});
                 that.current = that.reverseX(x);
+                if(that.data){
+                    that.updateData.render(that.data[that.getNear(that.current)]);
+                }
             }
         },
         //画公里标
@@ -147,7 +157,6 @@ define([
             for (var i = 1; i < 4; i++) {
                 var x = DrawCanvas.xy.marginLeft + this.allWidth / 4 * i,
                 index = this.getNear(this.reverseX(x));
-
                 ctx.fillText(this.data[index].glb, x - 40 , this.allHeight + 40);
             }
         },
@@ -160,6 +169,7 @@ define([
                     return i;
                 }
             }
+            return i-1;
         },
         //传入x坐标得到time值
         reverseX : function (x) {
@@ -203,7 +213,7 @@ define([
         widthY : 4,
         widthx : 3,
         marginLeft : 24 * 4,
-        marginBottom : 15 * 4,
+        marginBottom : 12 * 4,
         partY : 8,
         eachY : 20
     };

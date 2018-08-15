@@ -14,9 +14,9 @@ define([
                 space : this.collection.space
             }));
             this.drawCanvas.draw(this.collection.getSomeTime(this.collection.getTimeNumber(0)));
-            setInterval(function () {
+          /*  setInterval(function () {
                 that.render();
-            },500)
+            },500)*/
         },
         render: function () {
             this.drawCanvas.draw(this.collection.toJSON());
