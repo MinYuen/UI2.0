@@ -10,7 +10,7 @@ define([
             name : "gyk",
             width : 800 * 0.98 * 2,
             height: 600 * 0.57 * 2,
-            canvas : ["XY","speed","limitSpeed","guanya"]
+            canvas : ["XY","GLB","speed","limitSpeed","guanya","ruler"]
         }
     });
 });

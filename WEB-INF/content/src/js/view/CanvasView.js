@@ -9,10 +9,17 @@ define([
 
     return Backbone.View.extend({
         initialize: function () {
-           this.drawCanvas = new DrawCanvas(this.attributes,this.collection.toJSON());
+            var that = this;
+            this.drawCanvas = new DrawCanvas($.extend({},this.attributes,{
+                space : this.collection.space
+            }));
+            this.drawCanvas.draw(this.collection.getSomeTime(this.collection.getTimeNumber(0)));
+            setInterval(function () {
+                that.render();
+            },500)
         },
         render: function () {
-            this.drawCanvas.draw();
+            this.drawCanvas.draw(this.collection.toJSON());
         }
     })
 });
