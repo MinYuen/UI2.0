@@ -77,12 +77,10 @@ define([
             if(data) {
                 if(data.length !== 0) {
                     this.data = data;
-                    var one = this.data[this.getNear(this.current)];
                     this.drawLine("speed");
                     this.drawLine("limitSpeed");
                     this.drawGLB();
-                    this.drawText(one);
-                    this.updateData.render(one);
+                    this.render();
                 }
             }
         },
@@ -149,12 +147,23 @@ define([
                 that.current = that.reverseX(x);
                 if(that.data){
                     if(that.data.length !== 0) {
-                        var one = that.data[that.getNear(that.current)];
-                        that.drawText(one);
-                        that.updateData.render(one);
+                        that.render();
                     }
                 }
             }
+        },
+        render : function () {
+            var index = this.getNear(this.current),
+                one = this.data[index];
+            one = $.extend({},one,{
+                info : [
+                    this.data[index-1].other,
+                    this.data[index].other,
+                    this.data[index+1].other
+                ]
+            });
+            this.drawText(one);
+            this.updateData.render(one);
         },
         //画公里标
         drawGLB : function () {

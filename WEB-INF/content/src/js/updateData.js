@@ -1,9 +1,12 @@
 define([
-    "jquery", "underscore","artTemplate","text!templates/gykTop.html"
-], function ($, _ , template, gykTop) {
+    "jquery", "underscore","artTemplate",
+    "text!templates/gykTop.html",
+    "text!templates/gykBottom.html"
+], function ($, _ , template,
+             gykTop,gykBottom) {
     var UpdateData = function (options) {
         if (this instanceof UpdateData) {
-           
+           this.info = []
         } else {
             return new UpdateData(options);
         }
@@ -13,6 +16,7 @@ define([
         constructor: UpdateData,
         render : function (data) {
             this.renderTop(data);
+            this.renderBottom(data);
         },
         renderTop : function (data) {
             var time = data.time.split(" ");
@@ -21,6 +25,9 @@ define([
                 date : time[0]
             })));
             this.setLight();
+        },
+        renderBottom : function (data) {
+            $("#gyk_bottom").html(template.compile(gykBottom)(data));
         },
         //设置灯
         setLight: function () {

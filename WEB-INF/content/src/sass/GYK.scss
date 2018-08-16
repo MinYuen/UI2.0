@@ -16,6 +16,7 @@ $gyk_green : #7dd667;
 $gyk_yellow : #ffd629;
 $gyk_grey : #cacaca;
 $gyk_white : #eee;
+$gyk_default : #575757;
 
 .GYK_Container {
   width: $gyk_width;
@@ -26,14 +27,6 @@ $gyk_white : #eee;
     background: $gyk_light_bg;
     height: $gyk_top_height;
     padding: $gyk_padding;
-
-    .back {
-      background-color: #161616;
-      border: 1px solid #414141;
-      border-radius: 8px;
-      padding: 5px 10px;
-      margin: 0 0.2%;
-    }
 
     .text_unit_normal{
       float: left;
@@ -50,11 +43,6 @@ $gyk_white : #eee;
       line-height: 1.25;
       width: 70%;
       font-size: 44px;
-    }
-
-    .inline {
-      float: left;
-      height: 100%;
     }
 
     .signle {
@@ -105,7 +93,41 @@ $gyk_white : #eee;
   > .bottom {
     background: $gyk_light_bg;
     height: $gyk_bottom_height;
-    padding: $gyk_padding
+    padding: $gyk_padding;
+    font-size: 16px;
+
+    .tip > div {
+      width: 33%;
+      float : left;
+      padding: 1%;
+      text-align: center;
+    }
+
+    .info {
+      line-height: 1.7;
+      overflow: auto;
+    }
+
+    .text > div {
+      width: 50%;
+      float: left;
+      padding: 0.6% 3%;
+
+      span:first-child {
+        width: 40%;
+        float: left;
+        display: inline-block;
+        color: #999;
+      }
+
+      span:nth-child(2) {
+        width: 60%;
+        float: left;
+        display: inline-block;
+        text-align: right;
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -131,6 +153,19 @@ $gyk_white : #eee;
   }
 }
 
+.back {
+  background-color: #161616;
+  border: 1px solid #414141;
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin: 0 0.2%;
+}
+
+.inline {
+  float: left;
+  height: 100%;
+}
+
 .green {
   color: $gyk_green;
 }
@@ -145,6 +180,10 @@ $gyk_white : #eee;
 
 .grey {
   color: $gyk_grey;
+}
+
+.default {
+  color: $gyk_default;
 }
 
 .white {
