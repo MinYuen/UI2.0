@@ -13,41 +13,22 @@
       border-radius: 8px;
       padding: 5px 10px;
       margin: 0 0.2%; }
-    .GYK_Container > .top .text_unit_normal,
-    .GYK_Container > .top .text_unit_small {
+    .GYK_Container > .top .text_unit_normal {
       float: left;
       line-height: 1.2;
-      font-size: 16px; }
-    .GYK_Container > .top .text_unit_normal {
-      margin: 8% 0;
+      font-size: 16px;
+      text-align: center;
+      margin: 9px 0;
       width: 30%; }
-    .GYK_Container > .top .text_unit_small {
-      margin: 5.5% 0;
-      width: 24%; }
-    .GYK_Container > .top .number,
-    .GYK_Container > .top .text_name {
-      float: left;
-      text-align: center; }
     .GYK_Container > .top .number {
+      float: left;
+      text-align: center;
       line-height: 1.25;
       width: 70%;
       font-size: 44px; }
-    .GYK_Container > .top .text_name {
-      width: 76%;
-      font-size: 22px;
-      line-height: 2.4; }
     .GYK_Container > .top .inline {
       float: left;
       height: 100%; }
-    .GYK_Container > .top .xs {
-      padding: 15px 20px;
-      width: 9%; }
-    .GYK_Container > .top .small {
-      width: 15%; }
-    .GYK_Container > .top .middle {
-      width: 17%; }
-    .GYK_Container > .top .large {
-      width: 20%; }
     .GYK_Container > .top .signle {
       height: 48%;
       line-height: 1.1;

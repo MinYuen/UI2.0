@@ -67,16 +67,22 @@ define([
                     marginLeft = DrawCanvas.xy.marginLeft - (number < 100 ?  60 : 80);
                 ctx.fillText(number, marginLeft , lheight + 12);
             }
+
+            //画框
+            ctx.fillStyle = DrawCanvas.color.black;
+            this.drawRoundRect(ctx, DrawCanvas.xy.marginLeft + 20, 15, allWidth/4 - 50*2, eachHeight * 2 - 20*2, 16);
         },
         //动态绘制
         draw : function (data) {
             if(data) {
                 if(data.length !== 0) {
                     this.data = data;
+                    var one = this.data[this.getNear(this.current)];
                     this.drawLine("speed");
                     this.drawLine("limitSpeed");
                     this.drawGLB();
-                    this.updateData.render(this.data[this.getNear(this.current)]);
+                    this.drawText(one);
+                    this.updateData.render(one);
                 }
             }
         },
@@ -143,15 +149,16 @@ define([
                 that.current = that.reverseX(x);
                 if(that.data){
                     if(that.data.length !== 0) {
-                        that.updateData.render(that.data[that.getNear(that.current)]);
+                        var one = that.data[that.getNear(that.current)];
+                        that.drawText(one);
+                        that.updateData.render(one);
                     }
                 }
             }
         },
         //画公里标
         drawGLB : function () {
-            var that = this,
-                xy = this.ctxs["GLB"],
+            var xy = this.ctxs["GLB"],
                 dom = xy.dom,
                 ctx = xy.ctx;
 
@@ -164,6 +171,25 @@ define([
                 index = this.getNear(this.reverseX(x));
                 ctx.fillText(this.data[index].glb, x - 40 , this.allHeight + 40);
             }
+        },
+        //画文字
+        drawText : function (one) {
+            var xy = this.ctxs["text"],
+                dom = xy.dom,
+                ctx = xy.ctx;
+
+            ctx.clearRect(0, 0, dom.width, dom.height);
+            ctx.font = DrawCanvas.text.font_size_title + " " + DrawCanvas.text.font_family;
+
+            //行车模式
+            ctx.fillStyle = DrawCanvas.color.yellow;
+            ctx.fillText(one.name.substring(0,6), DrawCanvas.xy.marginLeft + 40, 60);
+            ctx.fillText(one.name.substring(6,12), DrawCanvas.xy.marginLeft + 40, 110);
+
+            //车站
+            ctx.fillStyle = DrawCanvas.color.white;
+            ctx.fillText(one.station, dom.width - 200, 60);
+            ctx.fillText(one.stationDistance + "km", dom.width - 200, 110);
         },
         //得到临近的data的index
         getNear : function (space) {
@@ -197,6 +223,20 @@ define([
             ctx.lineTo(end.x, end.y);
             ctx.stroke();
             ctx.closePath();
+        },
+        //画圆角矩形
+        drawRoundRect : function (ctx, x, y, width, height, radius) {
+            ctx.beginPath();
+            ctx.arc(x + radius, y + radius, radius, Math.PI, Math.PI * 3 / 2);
+            ctx.lineTo(width - radius + x, y);
+            ctx.arc(width - radius + x, radius + y, radius, Math.PI * 3 / 2, Math.PI * 2);
+            ctx.lineTo(width + x, height + y - radius);
+            ctx.arc(width - radius + x, height - radius + y, radius, 0, Math.PI / 2);
+            ctx.lineTo(radius + x, height +y);
+            ctx.arc(radius + x, height - radius + y, radius, Math.PI / 2, Math.PI);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
         }
     };
 
@@ -205,7 +245,7 @@ define([
         green :"#7dd667",
         blue : "#3498db",
         yellow : "#ffd629",
-        black : "#333333",
+        black : "#161616",
         white : "#ffffff",
         grey : "#666666"
     };
@@ -240,8 +280,8 @@ define([
 
     DrawCanvas.text = {
         font_family : "微软雅黑",
-        font_size_normal : "32px",
-        font_size_title : "64px",
+        font_size_normal : "28px",
+        font_size_title : "36px",
         color : "#ddd"
     };
 
