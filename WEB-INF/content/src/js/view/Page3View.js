@@ -19,6 +19,7 @@ define([
         render: function () {
             var model = this.model.toJSON();
             new CanvasView({
+                el: $("#gyk_canvas_top"),
                 attributes : {
                     canvas : model.canvas,
                     name : model.name

@@ -71,12 +71,14 @@ define([
         //动态绘制
         draw : function (data) {
             if(data) {
-                this.data = data;
+                if(data.length !== 0) {
+                    this.data = data;
+                    this.drawLine("speed");
+                    this.drawLine("limitSpeed");
+                    this.drawGLB();
+                    this.updateData.render(this.data[this.getNear(this.current)]);
+                }
             }
-            this.drawLine("speed");
-            this.drawLine("limitSpeed");
-            this.drawGLB();
-            this.updateData.render(this.data[this.getNear(this.current)]);
         },
         //画速度、限速
         drawLine : function (type) {
@@ -130,7 +132,8 @@ define([
                     });
                     $(dom).one("mouseup.tem", function () {
                         $(dom).off("mousemove.tem");
-                    })
+                    });
+                    return false;
                 }
             });
 
@@ -139,7 +142,9 @@ define([
                 that.oneLine(ctx, {x: x, y: 0}, {x: x, y: that.allHeight});
                 that.current = that.reverseX(x);
                 if(that.data){
-                    that.updateData.render(that.data[that.getNear(that.current)]);
+                    if(that.data.length !== 0) {
+                        that.updateData.render(that.data[that.getNear(that.current)]);
+                    }
                 }
             }
         },

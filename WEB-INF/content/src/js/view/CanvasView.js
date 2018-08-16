@@ -8,18 +8,35 @@ define([
     "use strict";
 
     return Backbone.View.extend({
+        events : {
+            "mousedown" : "toggle"
+        },
         initialize: function () {
-            var that = this;
             this.drawCanvas = new DrawCanvas($.extend({},this.attributes,{
                 space : this.collection.space
             }));
-            this.drawCanvas.draw(this.collection.getSomeTime(this.collection.getTimeNumber(0)));
-          /*  setInterval(function () {
-                that.render();
-            },500)*/
+            this.time = this.collection.getTimeNumber(0);
+            this.start = true;
+            this.startTimeInterval();
         },
         render: function () {
-            this.drawCanvas.draw(this.collection.toJSON());
+            this.drawCanvas.draw(this.collection.getSomeTime(this.time));
+            this.time += 5000;
+        },
+        startTimeInterval : function () {
+            var that = this;
+            that.render();
+            this.timeInterval = setInterval(function () {
+                that.render();
+            },100)
+        },
+        toggle : function () {
+            if(this.start) {
+                clearInterval(this.timeInterval);
+            }else{
+                this.startTimeInterval();
+            }
+            this.start = !this.start;
         }
     })
 });
