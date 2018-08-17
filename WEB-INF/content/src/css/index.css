@@ -60,7 +60,21 @@
       text-align: center; }
     .GYK_Container > .bottom .info {
       line-height: 1.7;
-      overflow: auto; }
+      overflow: auto;
+      SCROLLBAR-FACE-COLOR: #eee;
+      SCROLLBAR-SHADOW-COLOR: #eee;
+      SCROLLBAR-TRACK-COLOR: #ccc;
+      SCROLLBAR-ARROW-COLOR: #eee; }
+      .GYK_Container > .bottom .info::-webkit-scrollbar {
+        width: 10px;
+        height: 10px; }
+      .GYK_Container > .bottom .info.fog-treeview::-webkit-scrollbar-button {
+        background-color: #eee; }
+      .GYK_Container > .bottom .info.fog-treeview::-webkit-scrollbar-track-piece {
+        background: #eee; }
+      .GYK_Container > .bottom .info.fog-treeview::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px; }
     .GYK_Container > .bottom .text > div {
       width: 50%;
       float: left;
@@ -87,10 +101,15 @@
     .canvas_Container > .top > canvas {
       position: absolute;
       width: 784px;
-      height: 342px; }
+      height: 348px; }
   .canvas_Container > .bottom {
     background: #212121;
-    height: 18%; }
+    height: 18%;
+    position: relative; }
+    .canvas_Container > .bottom > canvas {
+      position: absolute;
+      width: 784px;
+      height: 78px; }
 
 .back {
   background-color: #161616;

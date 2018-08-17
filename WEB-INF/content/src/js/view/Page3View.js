@@ -17,11 +17,12 @@ define([
             this.model.fetch();
         },
         render: function () {
-            var model = this.model.toJSON();
+            var model = this.model.toJSON(),
+                canvas = _.flatten(_.pluck(model.canvas, 'canvas'));
             new CanvasView({
-                el: $("#gyk_canvas_top"),
+                el: $(".canvas_Container"),
                 attributes : {
-                    canvas : model.canvas,
+                    canvas : canvas,
                     name : model.name
                 },
                 collection: new CanvasCollection(model.message)

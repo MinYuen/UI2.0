@@ -57,7 +57,7 @@ require(['mock'], function (Mock) {
                 jiesuo : Mock.Random.boolean(),
 
                 checi : checi,
-                guanya : Mock.Random.int(0,1000),
+                guanya : Mock.Random.int(0,800),
                 zhixian : Mock.Random.int(0,10),
                 gudao : Mock.Random.int(0,10),
                 xingbie : xingbie[Mock.Random.int(0,1)],
