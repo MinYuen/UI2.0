@@ -1,0 +1,328 @@
+$gyk_width : 800px;
+$gyk_height : 600px;
+$gyk_dark_bg : #161616;
+$gyk_light_bg : #2b2b2b;
+$gyk_top_height : 12%;
+$gyk_middle_height : 72.5%;
+$gyk_bottom_height : 15.5%;
+$gyk_padding : 0.5%;
+$gyk_radius : 8px;
+$gyk_border : 2px solid #404040;
+$canvas_height : 100%;
+$canvas_top_height : 82%;
+$canvas_bottom_height : 18%;
+$gyk_red : #f92121;
+$gyk_green : #7dd667;
+$gyk_yellow : #ffd629;
+$gyk_grey : #cacaca;
+$gyk_white : #eee;
+$gyk_default : #575757;
+
+.GYK_Container {
+  width: $gyk_width;
+  height: $gyk_height;
+  margin: auto;
+
+  > .top {
+    background: $gyk_light_bg;
+    height: $gyk_top_height;
+    padding: $gyk_padding;
+
+    .text_unit_normal{
+      float: left;
+      line-height: 1.2;
+      font-size: 16px;
+      text-align: center;
+      margin: 9px 0;
+      width: 30%;
+    }
+
+    .number {
+      float: left;
+      text-align: center;
+      line-height: 1.25;
+      width: 70%;
+      font-size: 44px;
+    }
+
+    .signle {
+      height: 48%;
+      line-height: 1.1;
+      font-size: 10px;
+    }
+
+    .bottom {
+      margin-bottom: 2%;
+    }
+
+    .text,.value {
+      font-size: 16px;
+      float: left;
+    }
+
+    .text {
+      width: 40%;
+    }
+
+    .value {
+      width: 60%;
+      text-align: right;
+    }
+
+    .time {
+      font-size: 26px;
+      line-height: 1.2;
+      text-align: center;
+      letter-spacing : -0.5px
+    }
+
+    .date {
+      font-size: 18px;
+      line-height: 1.2;
+      text-align: center;
+      letter-spacing : 0.4px
+    }
+  }
+
+  > .middle {
+    background: $gyk_dark_bg;
+    height: $gyk_middle_height;
+    padding: $gyk_padding
+  }
+
+  > .bottom {
+    background: $gyk_light_bg;
+    height: $gyk_bottom_height;
+    padding: $gyk_padding;
+    font-size: 16px;
+
+    .tip > div {
+      width: 33%;
+      float : left;
+      padding: 1%;
+      text-align: center;
+    }
+
+    .info {
+      line-height: 1.7;
+      overflow: auto;
+      SCROLLBAR-FACE-COLOR: #eee;
+      SCROLLBAR-SHADOW-COLOR: #eee;
+      SCROLLBAR-TRACK-COLOR:#ccc;
+      SCROLLBAR-ARROW-COLOR: #eee;
+
+      &::-webkit-scrollbar {
+        width:10px;
+        height:10px;
+      }
+      &.fog-treeview::-webkit-scrollbar-button    {
+        background-color:#eee;
+      }
+
+      &.fog-treeview::-webkit-scrollbar-track-piece {
+        background:#eee;
+      }
+      &.fog-treeview::-webkit-scrollbar-thumb{
+        background:#ccc;
+        border-radius:10px;
+      }
+    }
+
+    .text > div {
+      width: 50%;
+      float: left;
+      padding: 0.6% 3%;
+
+      span:first-child {
+        width: 40%;
+        float: left;
+        display: inline-block;
+        color: #999;
+      }
+
+      span:nth-child(2) {
+        width: 60%;
+        float: left;
+        display: inline-block;
+        text-align: right;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.canvas_Container {
+  border: $gyk_border;
+  border-radius: $gyk_radius;
+  height: $canvas_height;
+
+  > .top {
+    height: $canvas_top_height;
+    position: relative;
+
+    > canvas {
+      position: absolute;
+      width: $gyk_width * 0.98;
+      height: $gyk_height * 0.58;
+    }
+  }
+
+  > .bottom {
+    background:#212121;
+    height: $canvas_bottom_height;
+    position: relative;
+
+    > canvas {
+      position: absolute;
+      width: $gyk_width * 0.98;
+      height: $gyk_height * 0.13;
+    }
+  }
+}
+
+.back {
+  background-color: #161616;
+  border: 1px solid #414141;
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin: 0 0.2%;
+}
+
+.inline {
+  float: left;
+  height: 100%;
+}
+
+.green {
+  color: $gyk_green;
+}
+
+.yellow {
+  color: $gyk_yellow;
+}
+
+.red {
+  color: $gyk_red;
+}
+
+.grey {
+  color: $gyk_grey;
+}
+
+.default {
+  color: $gyk_default;
+}
+
+.white {
+  color: $gyk_white
+}
+
+/*灯css sprite*/
+.sprites {
+  background: url("../images/sprites-nq8.png") no-repeat;
+}
+
+.double_yellow_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 0;
+}
+
+.double_yellow_flash_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -37px;
+}
+
+.green2_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -74px;
+}
+
+.green3_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -111px;
+}
+
+.green4_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -148px;
+}
+
+.green5_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -185px;
+}
+
+.green_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -222px;
+}
+
+.green_yellow2_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -259px;
+}
+
+.green_yellow_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -296px;
+}
+
+.red_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -333px;
+}
+
+.red_yellow_flash_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -370px;
+}
+
+.red_yellow_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -407px;
+}
+
+.white_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -444px;
+}
+
+.yellow2_flash_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -481px;
+}
+
+.yellow2_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -518px;
+}
+
+.yellow_light {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -555px;
+}
+
+.manyLights {
+  position: absolute;
+  color: #fff;
+  margin-top: -2px;
+  margin-left: 32px;
+  font-size: 8px;
+  display: none;
+}

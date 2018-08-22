@@ -1,0 +1,42 @@
+<div class="back inline tip" style="width: 20%;">
+    <div class="{{guzhang ? 'red' : 'default'}}">故障</div>
+    <div class="{{changyong ? 'green' : 'default'}}">常用</div>
+    <div class="{{geli ? 'green' : 'default'}}">隔离</div>
+    <div class="{{youquan ? 'green' : 'default'}}">有权</div>
+    <div class="{{xihuo ? 'red' : 'default'}}">熄火</div>
+    <div class="{{kongdang ? 'green' : 'default'}}">空档</div>
+    <div class="{{qianjin ? 'green' : 'default'}}">前进</div>
+    <div class="{{duibiao ? 'green' : 'default'}}">对标</div>
+    <div class="{{jiesuo ? 'green' : 'default'}}">解锁</div>
+</div>
+<div class="back inline info" style="width: 48.8%;">
+    {{each info as one j}}
+        <div class="{{one.indexOf('未安装') > -1 || one.indexOf('失败') > -1 ? 'yellow' : 'white'}}">{{one}}</div>
+    {{/each}}
+</div>
+<div class="back inline text" style="width: 30%;">
+    <div>
+        <span>车次</span>
+        <span>{{checi}}</span>
+    </div>
+    <div>
+        <span>管压</span>
+        <span>{{guanya}}</span>
+    </div>
+    <div>
+        <span>支线</span>
+        <span>{{zhixian}}</span>
+    </div>
+    <div>
+        <span>股道</span>
+        <span>{{gudao}}</span>
+    </div>
+    <div>
+        <span>行别</span>
+        <span>{{xingbie}}</span>
+    </div>
+    <div>
+        <span>均缸</span>
+        <span>{{jungang}}</span>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="GYK_Container">
+    <div class="top" id="{{name}}_top"></div>
+    <div class="middle">
+        <div class="canvas_Container">
+            {{each canvas as one i}}
+            <div class="{{one.name}}" id="{{name}}_canvas_{{one.name}}">
+                {{each one.canvas as single i}}
+                <canvas id="{{name}}_{{single}}" width="{{one.width}}" height="{{one.height}}">
+                    您的浏览器不支持 HTML5 canvas 标签。
+                </canvas>
+                {{/each}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="bottom" id="{{name}}_bottom"></div>
+</div>

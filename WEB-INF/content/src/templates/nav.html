@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="navbar-header">
+        <img class="navbar-brand-img" src="{{system.logo}}">
+        <div class="navbar-brand">
+            <a class="title" onclick="location.reload()">{{system.name}}</a>
+            <span class="content">{{system.department}}</span>
+        </div>
+    </div>
+    <div class="navbar-collapse collapse">
+        <nav>
+            <ul class="nav navbar-head-nav" id="{{moduleName}}_headNav">
+                {{each navbar as nav i}}
+                {{if nav.show}}
+                <li data-id="{{i}}" class="{{nav.active? 'active' : ''}}">
+                    <a href="{{nav.url}}">
+                        <div class="icon"><span class="{{nav.icon}}"></span></div>
+                        <div class="title" title="{{nav.text}}">{{nav.text}}</div>
+                    </a>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </nav>
+        <ul class="nav navbar-nav navbar-info">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" title="{{sysUser.name}}（{{sysUser.roleName}}）">
+                    <div class="user-info">
+                        <span class="name">{{sysUser.name}}（{{sysUser.roleName}}）</span>
+                        <span>{{sysUser.department}}</span>
+                    </div>
+                    <div class="caret"></div>
+                </a>
+                <ul class="dropdown-menu" id="{{moduleName}}_dropdown">
+                    <div class="notify-arrow notify-arrow-inverse"></div>
+                    {{each dropdownInfo as info i}}
+                    <li><a data-id="{{i}}"><span class="{{info.icon}} icon" aria-hidden="true"></span>{{info.text}}</a></li>
+                    {{/each}}
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
